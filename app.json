@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "Forrajeria",
+    "slug": "Movil",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logoo.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/logoo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logoo.png",
+        "backgroundColor": "#ffffff",
+        "versionCode": 1,
+        "permissions": [
+          "INTERNET",
+          "ACCESS_NETWORK_STATE"
+        ]
+      },
+      "package": "com.delgado95.Movil"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "17e5e244-0354-4207-8774-96a0e4cd6342"
+      }
+    }
+  }
+}
