@@ -160,7 +160,9 @@ const Menu = ({ navigation }) => {
 
       <View style={styles.tableHeader}>
         <Text style={[styles.columnHeader, { flex: 1.5 }]}>ID</Text>
+        <View style={styles.verticalDivider} />
         <Text style={[styles.columnHeader, { flex: 2 }]}>Nombre</Text>
+        <View style={styles.verticalDivider} />
         <Text style={[styles.columnHeader, { flex: 1 }]}>Acciones</Text>
       </View>
 
@@ -170,10 +172,14 @@ const Menu = ({ navigation }) => {
       >
         {filteredProductos.map((producto) => (
           <View key={producto.id} style={styles.tableRow}>
-            <Text style={[styles.idCell, { flex: 1.5 }]} numberOfLines={1} ellipsizeMode="middle">
-              {producto.id}
-            </Text>
+            <View style={[styles.idContainer, { flex: 1.5 }]}>
+              <Text style={styles.idCell} numberOfLines={2} ellipsizeMode="middle">
+                {producto.id}
+              </Text>
+            </View>
+            <View style={styles.verticalDivider} />
             <Text style={[styles.nameCell, { flex: 2 }]}>{producto.nombre}</Text>
+            <View style={styles.verticalDivider} />
             <View style={[styles.actionsCell, { flex: 1 }]}>
               <TouchableOpacity 
                 onPress={() => handleEdit(producto)}
@@ -262,10 +268,17 @@ const styles = StyleSheet.create({
     borderBottomColor: '#333',
     paddingBottom: 10,
     marginBottom: 10,
+    alignItems: 'center',
   },
   columnHeader: {
     color: 'white',
     fontWeight: 'bold',
+  },
+  verticalDivider: {
+    width: 1,
+    height: '100%',
+    backgroundColor: '#333',
+    marginHorizontal: 5,
   },
   tableContent: {
     flex: 1,
@@ -276,22 +289,30 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#333',
     alignItems: 'center',
+    minHeight: 60,
+  },
+  idContainer: {
+    justifyContent: 'center',
   },
   idCell: {
     color: 'white',
     fontSize: 12,
+    textAlign: 'left',
   },
   nameCell: {
     color: 'white',
   },
   actionsCell: {
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-around',
   },
   actionButton: {
     padding: 8,
-    marginHorizontal: 5,
+    marginHorizontal: 3,
     borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    minWidth: 35, 
   },
   deleteButton: {
     backgroundColor: 'transparent',
